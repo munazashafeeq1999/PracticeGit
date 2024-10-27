@@ -1,0 +1,27 @@
+<p>login {{status}}!</p>
+<button type="submit" [disabled]="formIsInvalid">Submit</button>
+<form>
+  <fieldset>
+    <legend>User Information</legend>
+    <label for="name">Enter Name:</label>
+    <input type="text" placeholder="full name" id="name" />
+
+    <p>
+      @if (isAdmin) {
+      <button>Erase database</button>
+      }
+      @else {
+      <p>You are not authorized.</p>
+      }
+    </p>
+
+    <ul>
+      @for (ingredient of ingredientList; track ingredient.name) {
+      <li>{{ ingredient.quantity }} - {{ ingredient.name }}</li>
+      }
+    </ul>
+
+    <button (click)="onClick()">Abracadab</button>
+
+  </fieldset>
+</form>
